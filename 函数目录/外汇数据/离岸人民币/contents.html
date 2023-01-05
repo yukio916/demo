@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>离岸人民币 &#8212; 数据使用指南 0.1.1 文档</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/nature.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <link rel="author" title="关于此文档" href="../../../about.html" />
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" />
+    <link rel="next" title="美元指数" href="../%E7%BE%8E%E5%85%83%E6%8C%87%E6%95%B0/contents.html" />
+    <link rel="prev" title="股票数据" href="../../%E8%82%A1%E7%A5%A8%E6%95%B0%E6%8D%AE/contents.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="总索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../%E7%BE%8E%E5%85%83%E6%8C%87%E6%95%B0/contents.html" title="美元指数"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="../../%E8%82%A1%E7%A5%A8%E6%95%B0%E6%8D%AE/contents.html" title="股票数据"
+             accesskey="P">上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">数据使用指南 0.1.1 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">细水资本查询函数</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">离岸人民币</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="id1">
+<h1>离岸人民币<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">get_forex_data</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="id2">
+<h2>参数说明<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p>start_date: 需要查询的离岸人民币数据的开始日期。</p></li>
+<li><p>end_date: 需要查询的离岸人民币数据的结束日期。</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>返回数据字段名称<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 31%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回字段名称</p></th>
+<th class="head"><p>中文名称</p></th>
+<th class="head"><p>注释</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>trade_date</p></td>
+<td><p>交易时间</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>open</p></td>
+<td><p>时间段开盘价</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>high</p></td>
+<td><p>时间段最高价</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>low</p></td>
+<td><p>时间段最低价</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>close</p></td>
+<td><p>时间段收盘价</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>volume</p></td>
+<td><p>时间段成交量</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>change_pct</p></td>
+<td><p>时间段涨跌幅</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><cite>注：</cite> 数据来源于 <a class="reference external" href="https://cn.investing.com/currencies/usd-cnh-historical-data?_pmch=1662247677089">https://cn.investing.com/currencies/usd-cnh-historical-data?_pmch=1662247677089</a></p>
+</section>
+<section id="id4">
+<h2>代码示例<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#获取2022-01-01 到2022-05-01 的离岸人民币的日线数据。</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">get_forex_data</span><span class="p">(</span><span class="n">start_date</span><span class="o">=</span> <span class="s1">&#39;2022-01-01&#39;</span><span class="p">,</span> <span class="n">end_date</span><span class="o">=</span> <span class="s1">&#39;2022-05-01&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">OUTPUT</span><span class="p">:</span>
+        <span class="n">trade_date</span>    <span class="nb">open</span>      <span class="n">high</span>     <span class="n">low</span>     <span class="n">close</span>  <span class="n">volume</span>   <span class="n">change_pct</span>
+    <span class="mi">0</span>  <span class="mi">2022</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">29</span>  <span class="mf">6.6592</span>  <span class="mf">6.6949</span>  <span class="mf">6.6092</span>  <span class="mf">6.6397</span>  <span class="mi">235050</span>     <span class="o">-</span><span class="mf">0.27</span><span class="o">%</span>
+    <span class="mi">1</span>  <span class="mi">2022</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">28</span>  <span class="mf">6.5868</span>  <span class="mf">6.6758</span>  <span class="mf">6.5854</span>  <span class="mf">6.6579</span>  <span class="mi">228860</span>      <span class="mf">1.11</span><span class="o">%</span>
+    <span class="mi">2</span>  <span class="mi">2022</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">27</span>  <span class="mf">6.5908</span>  <span class="mf">6.5967</span>  <span class="mf">6.5750</span>  <span class="mf">6.5845</span>  <span class="mi">232550</span>     <span class="o">-</span><span class="mf">0.05</span><span class="o">%</span>
+    <span class="mi">3</span>  <span class="mi">2022</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">26</span>  <span class="mf">6.5715</span>  <span class="mf">6.5988</span>  <span class="mf">6.5445</span>  <span class="mf">6.5887</span>  <span class="mi">233010</span>      <span class="mf">0.28</span><span class="o">%</span>
+    <span class="mi">4</span>  <span class="mi">2022</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">25</span>  <span class="mf">6.5277</span>  <span class="mf">6.6097</span>  <span class="mf">6.5226</span>  <span class="mf">6.5696</span>  <span class="mi">223990</span>      <span class="mf">0.69</span><span class="o">%</span>
+    <span class="o">..</span>      <span class="o">...</span>        <span class="o">...</span>     <span class="o">...</span>     <span class="o">...</span>      <span class="o">...</span>     <span class="o">...</span>         <span class="o">...</span>
+    <span class="mi">80</span> <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">07</span>  <span class="mf">6.3948</span>  <span class="mf">6.3981</span>  <span class="mf">6.3770</span>  <span class="mf">6.3792</span>       <span class="mi">0</span>     <span class="o">-</span><span class="mf">0.20</span><span class="o">%</span>
+    <span class="mi">81</span> <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">06</span>  <span class="mf">6.3755</span>  <span class="mf">6.3996</span>  <span class="mf">6.3703</span>  <span class="mf">6.3923</span>       <span class="mi">0</span>      <span class="mf">0.28</span><span class="o">%</span>
+    <span class="mi">82</span> <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">05</span>  <span class="mf">6.3739</span>  <span class="mf">6.3785</span>  <span class="mf">6.3648</span>  <span class="mf">6.3746</span>       <span class="mi">0</span>      <span class="mf">0.02</span><span class="o">%</span>
+    <span class="mi">83</span> <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span>  <span class="mf">6.3747</span>  <span class="mf">6.3844</span>  <span class="mf">6.3689</span>  <span class="mf">6.3727</span>       <span class="mi">0</span>      <span class="mf">0.00</span><span class="o">%</span>
+    <span class="mi">84</span> <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">03</span>  <span class="mf">6.3600</span>  <span class="mf">6.3769</span>  <span class="mf">6.3503</span>  <span class="mf">6.3730</span>       <span class="mi">0</span>      <span class="mf">0.19</span><span class="o">%</span>
+
+    <span class="p">[</span><span class="mi">85</span> <span class="n">rows</span> <span class="n">x</span> <span class="mi">7</span> <span class="n">columns</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../../../index.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">离岸人民币</a><ul>
+<li><a class="reference internal" href="#id2">参数说明</a></li>
+<li><a class="reference internal" href="#id3">返回数据字段名称</a></li>
+<li><a class="reference internal" href="#id4">代码示例</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一主题</h4>
+    <p class="topless"><a href="../../%E8%82%A1%E7%A5%A8%E6%95%B0%E6%8D%AE/contents.html"
+                          title="上一章">股票数据</a></p>
+  </div>
+  <div>
+    <h4>下一主题</h4>
+    <p class="topless"><a href="../%E7%BE%8E%E5%85%83%E6%8C%87%E6%95%B0/contents.html"
+                          title="下一章">美元指数</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/函数目录/外汇数据/离岸人民币/contents.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="提交" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="总索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../%E7%BE%8E%E5%85%83%E6%8C%87%E6%95%B0/contents.html" title="美元指数"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="../../%E8%82%A1%E7%A5%A8%E6%95%B0%E6%8D%AE/contents.html" title="股票数据"
+             >上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">数据使用指南 0.1.1 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >细水资本查询函数</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">离岸人民币</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2022, cindy.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0创建。
+    </div>
+  </body>
+</html>

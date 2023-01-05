@@ -1,0 +1,109 @@
+会员持仓
+--------
+
+
+**查询数据库中四个期货交易所前 5、前 10、前 15、前 20 会员持仓排名数据**
+
+.. code-block:: python
+
+    get_position_rank_total_data(id,start_date,end_date) 
+
+**查询数据库中各交易所前 20 会员持仓排名数据明细**
+
+.. code-block:: python
+
+    get_position_rank_single_data(id,start_date,end_date,exchange)
+
+==========
+参数说明
+==========
+
+- id: 查询期货会员持仓数据的品种标的, 例如: cu。
+- start_date: 查询某品种会员持仓数据的开始时间。
+- end_date: 查询的某品种会员持仓数据的结束时间。
+- exchange: 查询的会员持仓数据公布的交易所。
+
+==================
+返回数据字段名称
+==================
+
+================================= ================================ ==============================================================================
+返回字段名称                             中文名称                             注释
+================================= ================================ ==============================================================================
+trade_date                           交易日期
+sec_code                             标的                               例如：铜(cu)
+vol_top5                             成交量前5个会员的成交量总和              
+                                                                        vol_top10、vol_top15、vol_top20 
+                                                                        分别为成交量前10、15、20个会员成交量总和
+
+vol_chg_top5                       成交量前5个会员的成交量变化总和
+                                                                        vol_chg_top10、vol_chg_top15、vol_chg_top20
+                                                                        分别为前10、15、20个会员的成交量变化总和
+
+long_open_interest_top5              持多单前5个会员的持多单量总和         
+                                                                        long_open_interest_top10、long_open_interest_top15、long_open_interest_top20
+                                                                        分别为持多单前10、15、20个会员的持多单量总和
+
+long_open_interest_chg_top5        持多单前5个会员持多单变化量总和          
+                                                                        long_open_interest_chg_top10、long_open_interest_chg_top15
+                                                                        分别为持多单前10、15、20个会员持多单变化量总和
+short_open_interest_top5           持空单前5个会员持空单量总和                  
+                                                                        short_open_interest_top10、short_open_interest_top15、short_open_interest_top20
+                                                                        分别为持空单前10、15、20个会员持空单量总和
+short_open_interest_chg_top5       持空单前5个会员持空单变化量总和         
+                                                                        short_open_interest_chg_top10、short_open_interest_chg_top15、short_open_interest_chg_top20 
+                                                                        分别为持空单前10、15、20个会员持空单变化量总和                                                                                                                                             
+================================= ================================ ==============================================================================
+
+`注:`  会员持仓数据来自akshare。
+
+===========
+代码示例
+===========
+1. 查询'2022-01-01到2022-05-01的期货品种为AP公布在大连交易所的前 20 会员持仓排名数据明细。
+    .. code-block:: python
+
+        data=get_position_rank_single_data(id='AP',start_date='2022-01-04',end_date='2022-01-04',exchange='CZCE')
+        print(data) 
+
+        OUTPUT:
+                rank	trade_date    sec_code	    ...	short_open_interest_chg	variety  exchange
+            0	1	2022-01-04	AP	  ...	     4617  	         AP	CZCE
+            1	2	2022-01-04	AP	  ...	     5907                AP     CZCE
+            2	3	2022-01-04	AP	  ...	     -66	         AP	CZCE
+            3	4	2022-01-04	AP	  ...	     3146	         AP	CZCE
+            4	5	2022-01-04	AP	  ...	     3970	         AP	CZCE
+            5	6	2022-01-04	AP	  ...	     1124	         AP  	CZCE
+            6	7	2022-01-04	AP	  ...	     2046	         AP	CZCE
+            7	8	2022-01-04	AP	  ...	     295	         AP	CZCE
+            8	9	2022-01-04	AP	  ...	     1330	         AP	CZCE
+            9	10	2022-01-04	AP	  ...	     372	         AP	CZCE
+            10	11	2022-01-04	AP	  ...	     -465	         AP	CZCE
+            11	12	2022-01-04	AP	  ...        1997                AP     CZCE
+            12	13	2022-01-04	AP	  ...	      115                AP     CZCE
+            13	14	2022-01-04	AP	  ...	      191	         AP	CZCE
+            14	15	2022-01-04	AP	  ...	      126	         AP	CZCE
+            15	16	2022-01-04	AP	  ...	      998	         AP	CZCE
+            16	17	2022-01-04	AP	  ...	      662	         AP	CZCE
+            17	18	2022-01-04	AP	  ...	      459	         AP	CZCE
+            18	19	2022-01-04	AP	  ...	      457	         AP	CZCE
+            19	20	2022-01-04	AP	  ...	      786	         AP	CZCE
+
+            [20 rows x 14 columns]
+#. 查询2022-01-04到2022-01-10的期货品种为AP的四个期货交易所前 5、前 10、前 15、前 20 会员持仓数据。
+    .. code-block:: python
+
+    
+        data=get_position_rank_total_data(id='AP',start_date='2022-01-04',end_date='2022-01-10')
+        print(data)
+
+        OUTPUT:
+            trade_date          sec_code     ...    short_open_interest_top20 short_open_interest_chg_top20
+            0 2022-01-04           AP	   ...	        17156	                    -107
+            1 2022-01-05	   AP	   ...	        17251	                     95
+            2 2022-01-06	   AP	   ...	        17378	                     413
+            3 2022-01-07	   AP	   ...	        17346	                     -32
+            4 2022-01-10	   AP	   ...	        17212	                     1187
+
+            [5 rows x 27 columns]
+

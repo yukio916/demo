@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>主力连续合约 &#8212; 数据使用指南 0.1.1 文档</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/nature.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <link rel="author" title="关于此文档" href="../../about.html" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="TICK数据" href="../TICK%E6%95%B0%E6%8D%AE/contents.html" />
+    <link rel="prev" title="期货数据" href="../%E6%9C%9F%E8%B4%A7%E6%95%B0%E6%8D%AE/contents.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="总索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../TICK%E6%95%B0%E6%8D%AE/contents.html" title="TICK数据"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="../%E6%9C%9F%E8%B4%A7%E6%95%B0%E6%8D%AE/contents.html" title="期货数据"
+             accesskey="P">上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">数据使用指南 0.1.1 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">细水资本查询函数</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">主力连续合约</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="id1">
+<h1>主力连续合约<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<section id="id2">
+<h2>未复权主力连续合约<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">get_dominant_data</span><span class="p">(</span><span class="n">future</span><span class="p">,</span><span class="n">start_date</span><span class="p">,</span><span class="n">end_date</span> <span class="n">frequency</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="id3">
+<h3>参数说明<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h3>
+<ul class="simple">
+<li><p>future：需要查询的期货的标的，例：CFFEX.IH8888。</p></li>
+<li><p>start_date: 需要查询合约交易数据的开始日期。</p></li>
+<li><p>end_date: 需要查询合约交易数据的结束日期。</p></li>
+<li><p>frequency: 需要查询的合约的交易数据周期,包括 1m、5m、15m、30m、1h、1d,分别表示分钟线、5分钟线、15分钟线、30分钟线、小时线、日线。</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>返回数据字段名称<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回字段名称</p></th>
+<th class="head"><p>中文名称</p></th>
+<th class="head"><p>注释</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>trade_date</p></td>
+<td><p>交易时间</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>sec_code</p></td>
+<td><p>期货合约标的</p></td>
+<td><p>未复权主力连续合约代码格式：”交易所.合约”，如：”CFFEX.IH8888”</p></td>
+</tr>
+<tr class="row-even"><td><p>open</p></td>
+<td><p>时间段中的开盘时间</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>high</p></td>
+<td><p>时间段中的最高价</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>low</p></td>
+<td><p>时间段中的最低价</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>close</p></td>
+<td><p>时间段中的收盘价</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>volume</p></td>
+<td><p>时间段中的成交的期货数量</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>money</p></td>
+<td><p>时间段中的成交额</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>high_limit</p></td>
+<td><p>时间段中的涨停价</p></td>
+<td><p>仅日线和分钟线有该字段</p></td>
+</tr>
+<tr class="row-odd"><td><p>low_limit</p></td>
+<td><p>时间段中的跌停价</p></td>
+<td><p>仅日线和分钟线有该字段</p></td>
+</tr>
+<tr class="row-even"><td><p>avg</p></td>
+<td><p>时间段中的平均价</p></td>
+<td><dl class="simple">
+<dt>仅日线和分钟线有该字段，其计算方法：</dt><dd><ol class="arabic simple">
+<li><p>日线均价计算方法：成交额除以成交量再除以合约乘数；</p></li>
+<li><p>分钟线均价计算方法：用该分钟所有tick的现价乘以该tick的成交量加起来之后，再除以该分钟的成交量。</p></li>
+</ol>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td><p>pre_close</p></td>
+<td><p>前一个单位时间结束时的价格</p></td>
+<td><dl class="simple">
+<dt>仅日线和分钟线有该字段，其含义：</dt><dd><ol class="arabic simple">
+<li><p>日线前收价：前一天的结算价</p></li>
+<li><p>分钟线前收：pre_close=open</p></li>
+</ol>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td><p>open_interest</p></td>
+<td><p>持仓量</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>adjfactor</p></td>
+<td><p>复权因子</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>future</p></td>
+<td><p>主力连续合约对应具体合约</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><cite>注</cite>：未复权主力连续合约的开盘价、最高价、最低价、收盘价为该时段对应合约的原始数据</p>
+</section>
+<section id="id5">
+<h3>代码示例<a class="headerlink" href="#id5" title="此标题的永久链接">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#获取M在2014-06-18 到2014-06-30的周期为1天的未复权数据。</span>
+
+ <span class="n">data</span><span class="o">=</span><span class="n">get_dominant_data</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="n">start_date</span><span class="o">=</span><span class="s1">&#39;2014-06-18&#39;</span><span class="p">,</span><span class="n">end_date</span><span class="o">=</span><span class="s1">&#39;2014-06-30&#39;</span><span class="p">,</span>
+ <span class="n">frequency</span> <span class="o">=</span> <span class="s1">&#39;1d&#39;</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;post&#39;</span><span class="p">)</span>
+ <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+ <span class="n">OUTPUT</span><span class="p">:</span>
+      <span class="n">trade_date</span>    <span class="n">sec_code</span>      <span class="nb">open</span>   <span class="o">...</span>  <span class="n">open_interest</span>    <span class="n">adjfactor</span>     <span class="n">future</span>
+     <span class="mi">0</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">18</span>  <span class="n">DCE</span><span class="o">.</span><span class="n">M8888</span>   <span class="mf">3676.0</span>  <span class="o">...</span>     <span class="mi">1471780</span>        <span class="mf">1.0</span>      <span class="n">DCE</span><span class="o">.</span><span class="n">M1409</span>
+     <span class="mi">1</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">19</span>  <span class="n">DCE</span><span class="o">.</span><span class="n">M8888</span>   <span class="mf">3694.0</span>  <span class="o">...</span>     <span class="mi">1387044</span>        <span class="mf">1.0</span>      <span class="n">DCE</span><span class="o">.</span><span class="n">M1409</span>
+     <span class="mi">2</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">20</span>  <span class="n">DCE</span><span class="o">.</span><span class="n">M8888</span>   <span class="mf">3714.0</span>  <span class="o">...</span>     <span class="mi">1380642</span>        <span class="mf">1.0</span>      <span class="n">DCE</span><span class="o">.</span><span class="n">M1409</span>
+     <span class="mi">3</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span>  <span class="n">DCE</span><span class="o">.</span><span class="n">M8888</span>   <span class="mf">3715.0</span>  <span class="o">...</span>     <span class="mi">1361454</span>        <span class="mf">1.0</span>      <span class="n">DCE</span><span class="o">.</span><span class="n">M1409</span>
+     <span class="mi">4</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">24</span>  <span class="n">DCE</span><span class="o">.</span><span class="n">M8888</span>   <span class="mf">3719.0</span>  <span class="o">...</span>     <span class="mi">1402492</span>        <span class="mf">1.0</span>      <span class="n">DCE</span><span class="o">.</span><span class="n">M1409</span>
+     <span class="mi">5</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">25</span>  <span class="n">DCE</span><span class="o">.</span><span class="n">M8888</span>   <span class="mf">3687.0</span>  <span class="o">...</span>     <span class="mi">1392234</span>        <span class="mf">1.0</span>      <span class="n">DCE</span><span class="o">.</span><span class="n">M1409</span>
+     <span class="mi">6</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">26</span>  <span class="n">DCE</span><span class="o">.</span><span class="n">M8888</span>   <span class="mf">3690.0</span>  <span class="o">...</span>     <span class="mi">1387482</span>        <span class="mf">1.0</span>      <span class="n">DCE</span><span class="o">.</span><span class="n">M1409</span>
+     <span class="mi">7</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">27</span>  <span class="n">DCE</span><span class="o">.</span><span class="n">M8888</span>   <span class="mf">3723.0</span>  <span class="o">...</span>     <span class="mi">1381464</span>        <span class="mf">1.0</span>      <span class="n">DCE</span><span class="o">.</span><span class="n">M1409</span>
+     <span class="mi">8</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">30</span>  <span class="n">DCE</span><span class="o">.</span><span class="n">M8888</span>   <span class="mf">3716.0</span>  <span class="o">...</span>     <span class="mi">1346754</span>        <span class="mf">1.0</span>      <span class="n">DCE</span><span class="o">.</span><span class="n">M1409</span>
+     <span class="p">[</span><span class="mi">9</span> <span class="n">rows</span> <span class="n">x</span> <span class="mi">15</span> <span class="n">columns</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id6">
+<h2>后复权主力连续合约<a class="headerlink" href="#id6" title="此标题的永久链接">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">get_dominant_data</span><span class="p">(</span><span class="n">future</span><span class="p">,</span><span class="nb">type</span><span class="p">,</span><span class="n">start_date</span><span class="p">,</span><span class="n">end_date</span> <span class="n">frequency</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="id7">
+<h3>参数说明<a class="headerlink" href="#id7" title="此标题的永久链接">¶</a></h3>
+<ul class="simple">
+<li><p>future：需要查询的期货的标的，例：CFFEX.IH6666。</p></li>
+<li><p>type：查询后复权数据传入参数post。</p></li>
+<li><p>start_date: 需要查询合约交易数据的开始日期。</p></li>
+<li><p>end_date: 需要查询合约交易数据的结束日期。</p></li>
+<li><p>frequency: 需要查询的合约的交易数据周期,包括 1m、5m、15m、30m、1h、1d,分别表示分钟线、5分钟线、15分钟线、30分钟线、小时线、日线。</p></li>
+</ul>
+</section>
+<section id="id8">
+<h3>返回数据字段名称<a class="headerlink" href="#id8" title="此标题的永久链接">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回字段名称</p></th>
+<th class="head"><p>中文名称</p></th>
+<th class="head"><p>注释</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>trade_date</p></td>
+<td><p>交易时间</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>sec_code</p></td>
+<td><p>期货合约标的</p></td>
+<td><p>后复权主力连续合约代码格式：”交易所.合约”，如：”CFFEX.IH6666”</p></td>
+</tr>
+<tr class="row-even"><td><p>open</p></td>
+<td><p>时间段中的开盘价</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>high</p></td>
+<td><p>时间段中的最高价</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>low</p></td>
+<td><p>时间段中的最低价</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>close</p></td>
+<td><p>时间段中的收盘价</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>volume</p></td>
+<td><p>时间段中的成交的期货数量</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>money</p></td>
+<td><p>时间段中的成交额</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>high_limit</p></td>
+<td><p>时间段中的涨停价</p></td>
+<td><p>仅日线和分钟线有该字段</p></td>
+</tr>
+<tr class="row-odd"><td><p>low_limit</p></td>
+<td><p>时间段中的跌停价</p></td>
+<td><p>仅日线和分钟线有该字段</p></td>
+</tr>
+<tr class="row-even"><td><p>avg</p></td>
+<td><p>时间段中的平均价</p></td>
+<td><dl class="simple">
+<dt>仅日线和分钟线有该字段，其计算方法：</dt><dd><ol class="arabic simple">
+<li><p>日线均价计算方法：成交额除以成交量再除以合约乘数；</p></li>
+<li><p>分钟线均价计算方法：用该分钟所有tick的现价乘以该tick的成交量加起来之后，再除以该分钟的成交量。</p></li>
+</ol>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td><p>pre_close</p></td>
+<td><p>前一个单位时间结束时的价格</p></td>
+<td><dl class="simple">
+<dt>仅日线和分钟线有该字段，其含义：</dt><dd><ol class="arabic simple">
+<li><p>日线前收价：前一天的结算价</p></li>
+<li><p>分钟线前收：pre_close=open</p></li>
+</ol>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td><p>open_interest</p></td>
+<td><p>持仓量</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>adjfactor</p></td>
+<td><p>复权因子</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>future</p></td>
+<td><p>主力连续合约对应具体合约</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><cite>注</cite>：未复权主力连续合约的开盘价、最高价、最低价、收盘价为该时段对应合约的原始数据乘复权因子后保留六位小数得到的数据。</p>
+</section>
+<section id="id9">
+<h3>代码示例<a class="headerlink" href="#id9" title="此标题的永久链接">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#获取M在2014-06-18 到2014-06-30的周期为1天的后复权数据。</span>
+
+<span class="n">data</span><span class="o">=</span><span class="n">get_dominant_data</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="n">start_date</span><span class="o">=</span><span class="s1">&#39;2014-06-18&#39;</span><span class="p">,</span><span class="n">end_date</span><span class="o">=</span><span class="s1">&#39;2014-06-30&#39;</span><span class="p">,</span>
+<span class="n">frequency</span> <span class="o">=</span> <span class="s1">&#39;1d&#39;</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;post&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">OUTPUT</span><span class="p">:</span>
+    <span class="n">trade_date</span>     <span class="n">sec_code</span>      <span class="nb">open</span>    <span class="o">...</span>  <span class="n">open_interest</span>  <span class="n">adjfactor</span>       <span class="n">future</span>
+    <span class="mi">0</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">18</span>  <span class="n">DCE</span><span class="o">.</span><span class="n">M6666</span>    <span class="mf">3676.0</span>  <span class="o">...</span>    <span class="mi">1471780</span>        <span class="mf">1.0</span>       <span class="n">DCE</span><span class="o">.</span><span class="n">M1409</span>
+    <span class="mi">1</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">19</span>  <span class="n">DCE</span><span class="o">.</span><span class="n">M6666</span>    <span class="mf">3694.0</span>  <span class="o">...</span>    <span class="mi">1387044</span>        <span class="mf">1.0</span>       <span class="n">DCE</span><span class="o">.</span><span class="n">M1409</span>
+    <span class="mi">2</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">20</span>  <span class="n">DCE</span><span class="o">.</span><span class="n">M6666</span>    <span class="mf">3714.0</span>  <span class="o">...</span>    <span class="mi">1380642</span>        <span class="mf">1.0</span>       <span class="n">DCE</span><span class="o">.</span><span class="n">M1409</span>
+    <span class="mi">3</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span>  <span class="n">DCE</span><span class="o">.</span><span class="n">M6666</span>    <span class="mf">3715.0</span>  <span class="o">...</span>    <span class="mi">1361454</span>        <span class="mf">1.0</span>       <span class="n">DCE</span><span class="o">.</span><span class="n">M1409</span>
+    <span class="mi">4</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">24</span>  <span class="n">DCE</span><span class="o">.</span><span class="n">M6666</span>    <span class="mf">3719.0</span>  <span class="o">...</span>    <span class="mi">1402492</span>        <span class="mf">1.0</span>       <span class="n">DCE</span><span class="o">.</span><span class="n">M1409</span>
+    <span class="mi">5</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">25</span>  <span class="n">DCE</span><span class="o">.</span><span class="n">M6666</span>    <span class="mf">3687.0</span>  <span class="o">...</span>    <span class="mi">1392234</span>        <span class="mf">1.0</span>       <span class="n">DCE</span><span class="o">.</span><span class="n">M1409</span>
+    <span class="mi">6</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">26</span>  <span class="n">DCE</span><span class="o">.</span><span class="n">M6666</span>    <span class="mf">3690.0</span>  <span class="o">...</span>    <span class="mi">1387482</span>        <span class="mf">1.0</span>       <span class="n">DCE</span><span class="o">.</span><span class="n">M1409</span>
+    <span class="mi">7</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">27</span>  <span class="n">DCE</span><span class="o">.</span><span class="n">M6666</span>    <span class="mf">3723.0</span>  <span class="o">...</span>    <span class="mi">1381464</span>        <span class="mf">1.0</span>       <span class="n">DCE</span><span class="o">.</span><span class="n">M1409</span>
+    <span class="mi">8</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">30</span>  <span class="n">DCE</span><span class="o">.</span><span class="n">M6666</span>    <span class="mf">3716.0</span>  <span class="o">...</span>    <span class="mi">1346754</span>        <span class="mf">1.0</span>       <span class="n">DCE</span><span class="o">.</span><span class="n">M1409</span>
+    <span class="p">[</span><span class="mi">9</span> <span class="n">rows</span> <span class="n">x</span> <span class="mi">15</span> <span class="n">columns</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id10">
+<h2>主连合约说明<a class="headerlink" href="#id10" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>主力连续合约认定方法：</dt><dd><p>选取某日期持仓量和成交量都最大的合约作为当天的主连，如果成交量最大的合约与持仓量最大的合约不是同一个合约，则自动认定成交量最大的为当日的主力连续合约。</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>未复权与后复权的区别：</dt><dd><p>未复权数据和后复权数据的复权因子是相同的，唯一的区别是未复权数据的其他字段包括开盘价、最高价、最低价、收盘价等都是原始数据，后复权数据中以上字段的数据都是乘了复权因子后的值。</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>代码说明：</dt><dd><p>未复权代码：交易所.品种8888，例：CFFEX.IH8888 。
+后复权代码：交易所.品种6666，例：CFFEX.IH6666 。</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../../index.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">主力连续合约</a><ul>
+<li><a class="reference internal" href="#id2">未复权主力连续合约</a><ul>
+<li><a class="reference internal" href="#id3">参数说明</a></li>
+<li><a class="reference internal" href="#id4">返回数据字段名称</a></li>
+<li><a class="reference internal" href="#id5">代码示例</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id6">后复权主力连续合约</a><ul>
+<li><a class="reference internal" href="#id7">参数说明</a></li>
+<li><a class="reference internal" href="#id8">返回数据字段名称</a></li>
+<li><a class="reference internal" href="#id9">代码示例</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id10">主连合约说明</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一主题</h4>
+    <p class="topless"><a href="../%E6%9C%9F%E8%B4%A7%E6%95%B0%E6%8D%AE/contents.html"
+                          title="上一章">期货数据</a></p>
+  </div>
+  <div>
+    <h4>下一主题</h4>
+    <p class="topless"><a href="../TICK%E6%95%B0%E6%8D%AE/contents.html"
+                          title="下一章">TICK数据</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/函数目录/主力连续合约/contents.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="提交" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="总索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../TICK%E6%95%B0%E6%8D%AE/contents.html" title="TICK数据"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="../%E6%9C%9F%E8%B4%A7%E6%95%B0%E6%8D%AE/contents.html" title="期货数据"
+             >上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">数据使用指南 0.1.1 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >细水资本查询函数</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">主力连续合约</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2022, cindy.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0创建。
+    </div>
+  </body>
+</html>

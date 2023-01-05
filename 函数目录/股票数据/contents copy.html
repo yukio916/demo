@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>期货数据 &#8212; 数据使用指南 0.1.1 文档</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/nature.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <link rel="author" title="关于此文档" href="../../about.html" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="总索引"
+             accesskey="I">索引</a></li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">数据使用指南 0.1.1 文档</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">期货数据</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="id1">
+<h1>期货数据<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">download_futures_data</span><span class="p">(</span><span class="n">future</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">frequency</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="id2">
+<h2>参数说明<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p>future: 期货合约。如: CFFEX.IF2203 的数据。</p></li>
+<li><p>type: 需要查询数据的种类, 查询期货就用futures。</p></li>
+<li><p>start_date: 需要查询合约交易数据的开始日期。</p></li>
+<li><p>end_date: 需要查询合约交易数据的结束日期。</p></li>
+<li><p>frequency: 需要查询的合约的交易数据周期,包括 1m , 5m , 15m , 30m ,1h , 1d , week , month。</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>返回字段名称<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回字段名称</p></th>
+<th class="head"><p>中文名称</p></th>
+<th class="head"><p>注释</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>trade_date</p></td>
+<td><p>交易时间</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>sec_code</p></td>
+<td><p>期货合约标的</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>open</p></td>
+<td><p>时间段中的开盘时间</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>high</p></td>
+<td><p>时间段中的最高价</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>low</p></td>
+<td><p>时间段中的最低价</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>close</p></td>
+<td><p>时间段中的收盘价</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>volume</p></td>
+<td><p>时间段中的成交的期货数量</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>money</p></td>
+<td><p>时间段中的成交额</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>high_limit</p></td>
+<td><p>时间段中的涨停价</p></td>
+<td><p>仅日线和分钟线有该字段</p></td>
+</tr>
+<tr class="row-odd"><td><p>low_limit</p></td>
+<td><p>时间段中的跌停价</p></td>
+<td><p>仅日线和分钟线有该字段</p></td>
+</tr>
+<tr class="row-even"><td><p>avg</p></td>
+<td><p>时间段中的平均价</p></td>
+<td><dl class="simple">
+<dt>仅日线和分钟线有该字段, 其计算方法:</dt><dd><ol class="arabic simple">
+<li><p>日线均价计算方法: 成交额除以成交量再除以合约乘数；</p></li>
+<li><p>分钟线均价计算方法: 用该分钟所有tick的现价乘以该tick的成交量加起来之后, 再除以该分钟的成交量。</p></li>
+</ol>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td><p>pre_close</p></td>
+<td><p>前一个单位时间结束时的价格</p></td>
+<td><dl class="simple">
+<dt>仅日线和分钟线有该字段, 其含义:</dt><dd><ol class="arabic simple">
+<li><p>日线前收价: 前一天的结算价</p></li>
+<li><p>分钟线前收: pre_close=open</p></li>
+</ol>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td><p>open_interest</p></td>
+<td><p>持仓量</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>adjfactor</p></td>
+<td><p>复权因子</p></td>
+<td><p>聚宽期货没有复权因子, 默认为-1</p></td>
+</tr>
+</tbody>
+</table>
+<p><cite>注:</cite></p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>期货数据来自聚宽, 包括原始数据和聚宽的主连、指数。</p></li>
+<li><dl class="simple">
+<dt>聚宽主力连续合约数据认定方法:</dt><dd><p>如果某合约持仓量连续2天为同一个品种中最大的(金融期货限定主力只从最近的两个合约中选取), 且该合约相对于当前主力合约为远期合约, 则自动变成主力合约。不会在日内进行主力合约切换。</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>聚宽指数数据认定方法:</dt><dd><p>期货品种指数数据使用前一天的持仓量加权平均。</p>
+</dd>
+</dl>
+</li>
+</ol>
+</div></blockquote>
+</section>
+<section id="id4">
+<h2>代码示例<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h2>
+<ol class="arabic">
+<li><p>获取CFFEX.IC2205合约在2022-01-22 到05-16的周期为15分钟的数据。</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#获取CFFEX.IC2205合约在2022-01-22 到05-16的周期为15分钟的数据。</span>
+<span class="n">date1</span><span class="o">=</span><span class="n">download_futures_data</span><span class="p">(</span><span class="s2">&quot;CFFEX.IC2205&quot;</span><span class="p">,</span><span class="n">start_date</span><span class="o">=</span><span class="s2">&quot;2022-01-22&quot;</span><span class="p">,</span><span class="n">end_date</span><span class="o">=</span><span class="s2">&quot;2022-05-17&quot;</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="s2">&quot;1h&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">date1</span><span class="p">)</span>
+
+<span class="n">OUTPUT</span><span class="p">:</span>
+                <span class="n">trade_date</span>      <span class="n">sec_code</span>    <span class="o">...</span>  <span class="n">open_interest</span>  <span class="n">adjfactor</span>
+    <span class="mi">0</span>   <span class="mi">2022</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">21</span> <span class="mi">10</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">00</span>  <span class="n">CFFEX</span><span class="o">.</span><span class="n">IC2205</span>   <span class="o">...</span>          <span class="mf">715.0</span>         <span class="o">-</span><span class="mi">1</span>
+    <span class="mi">1</span>   <span class="mi">2022</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">00</span>  <span class="n">CFFEX</span><span class="o">.</span><span class="n">IC2205</span>   <span class="o">...</span>         <span class="mf">1004.0</span>         <span class="o">-</span><span class="mi">1</span>
+    <span class="mi">2</span>   <span class="mi">2022</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">21</span> <span class="mi">14</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>  <span class="n">CFFEX</span><span class="o">.</span><span class="n">IC2205</span>   <span class="o">...</span>         <span class="mf">1753.0</span>         <span class="o">-</span><span class="mi">1</span>
+    <span class="mi">3</span>   <span class="mi">2022</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">21</span> <span class="mi">15</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>  <span class="n">CFFEX</span><span class="o">.</span><span class="n">IC2205</span>   <span class="o">...</span>         <span class="mf">2044.0</span>         <span class="o">-</span><span class="mi">1</span>
+    <span class="mi">4</span>   <span class="mi">2022</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">22</span> <span class="mi">10</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">00</span>  <span class="n">CFFEX</span><span class="o">.</span><span class="n">IC2205</span>   <span class="o">...</span>         <span class="mf">1890.0</span>         <span class="o">-</span><span class="mi">1</span>
+    <span class="o">..</span>            <span class="o">...</span>             <span class="o">...</span>       <span class="o">...</span>           <span class="o">...</span>          <span class="o">...</span>
+    <span class="mi">187</span> <span class="mi">2022</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">16</span> <span class="mi">15</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>  <span class="n">CFFEX</span><span class="o">.</span><span class="n">IC2205</span>   <span class="o">...</span>         <span class="mf">76185.0</span>        <span class="o">-</span><span class="mi">1</span>
+    <span class="p">[</span><span class="mi">188</span> <span class="n">rows</span> <span class="n">x</span> <span class="mi">10</span> <span class="n">columns</span><span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>获取2022-01-22到2022-05-16的沪铝主力连续合约的周期为15分钟的数据。</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#获取2022-01-22到2022-05-16的沪铝主力连续合约的周期为15分钟的数据。</span>
+<span class="n">date2</span><span class="o">=</span><span class="n">download_futures_data</span><span class="p">(</span><span class="s2">&quot;SHFE.AL9999&quot;</span><span class="p">,</span><span class="n">start_date</span><span class="o">=</span><span class="s2">&quot;2022-01-22&quot;</span><span class="p">,</span><span class="n">end_date</span><span class="o">=</span><span class="s2">&quot;2022-05-16&quot;</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="s2">&quot;15m&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">date2</span><span class="p">)</span>
+
+<span class="n">OUTPUT</span><span class="p">:</span>
+             <span class="n">trade_date</span>         <span class="n">sec_code</span>    <span class="o">...</span>    <span class="n">open_interest</span>  <span class="n">adjfactor</span>
+    <span class="mi">0</span>    <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">24</span> <span class="mi">09</span><span class="p">:</span><span class="mi">15</span><span class="p">:</span><span class="mi">00</span>  <span class="n">SHFE</span><span class="o">.</span><span class="n">AL9999</span>   <span class="o">...</span>       <span class="mf">214325.0</span>         <span class="o">-</span><span class="mi">1</span>
+    <span class="mi">1</span>    <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">24</span> <span class="mi">09</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">00</span>  <span class="n">SHFE</span><span class="o">.</span><span class="n">AL9999</span>   <span class="o">...</span>       <span class="mf">214642.0</span>         <span class="o">-</span><span class="mi">1</span>
+    <span class="mi">2</span>    <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">24</span> <span class="mi">09</span><span class="p">:</span><span class="mi">45</span><span class="p">:</span><span class="mi">00</span>  <span class="n">SHFE</span><span class="o">.</span><span class="n">AL9999</span>   <span class="o">...</span>       <span class="mf">214089.0</span>         <span class="o">-</span><span class="mi">1</span>
+    <span class="mi">3</span>    <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">24</span> <span class="mi">10</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>  <span class="n">SHFE</span><span class="o">.</span><span class="n">AL9999</span>   <span class="o">...</span>       <span class="mf">213469.0</span>         <span class="o">-</span><span class="mi">1</span>
+    <span class="mi">4</span>    <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">24</span> <span class="mi">10</span><span class="p">:</span><span class="mi">15</span><span class="p">:</span><span class="mi">00</span>  <span class="n">SHFE</span><span class="o">.</span><span class="n">AL9999</span>   <span class="o">...</span>       <span class="mf">213749.0</span>         <span class="o">-</span><span class="mi">1</span>
+    <span class="o">...</span>           <span class="o">...</span>            <span class="o">...</span>        <span class="o">...</span>         <span class="o">...</span>            <span class="o">...</span>
+    <span class="mi">2136</span> <span class="mi">2022</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">16</span> <span class="mi">15</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>  <span class="n">SHFE</span><span class="o">.</span><span class="n">AL9999</span>   <span class="o">...</span>       <span class="mf">163333.0</span>         <span class="o">-</span><span class="mi">1</span>
+    <span class="p">[</span><span class="mi">2137</span> <span class="n">rows</span> <span class="n">x</span> <span class="mi">10</span> <span class="n">columns</span><span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../../index.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">期货数据</a><ul>
+<li><a class="reference internal" href="#id2">参数说明</a></li>
+<li><a class="reference internal" href="#id3">返回字段名称</a></li>
+<li><a class="reference internal" href="#id4">代码示例</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/函数目录/股票数据/contents copy.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="提交" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="总索引"
+             >索引</a></li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">数据使用指南 0.1.1 文档</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">期货数据</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2022, cindy.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0创建。
+    </div>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+后复权主力连续合约
+------------------------
+
+.. code-block:: python
+
+    get_dominant_data(future,type,start_date,end_date frequency)
+    

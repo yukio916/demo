@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>会员持仓 &#8212; 数据使用指南 0.1.1 文档</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/nature.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <link rel="author" title="关于此文档" href="../../about.html" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="展期收益率" href="../%E5%B1%95%E6%9C%9F%E6%94%B6%E7%9B%8A%E7%8E%87/contents.html" />
+    <link rel="prev" title="注册仓单" href="../%E6%B3%A8%E5%86%8C%E4%BB%93%E5%8D%95/contents.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="总索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../%E5%B1%95%E6%9C%9F%E6%94%B6%E7%9B%8A%E7%8E%87/contents.html" title="展期收益率"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="../%E6%B3%A8%E5%86%8C%E4%BB%93%E5%8D%95/contents.html" title="注册仓单"
+             accesskey="P">上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">数据使用指南 0.1.1 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">细水资本查询函数</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">会员持仓</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="id1">
+<h1>会员持仓<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<p><strong>查询数据库中四个期货交易所前 5、前 10、前 15、前 20 会员持仓排名数据</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">get_position_rank_total_data</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">start_date</span><span class="p">,</span><span class="n">end_date</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>查询数据库中各交易所前 20 会员持仓排名数据明细</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">get_position_rank_single_data</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">start_date</span><span class="p">,</span><span class="n">end_date</span><span class="p">,</span><span class="n">exchange</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="id2">
+<h2>参数说明<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p>id: 查询期货会员持仓数据的品种标的, 例如: cu。</p></li>
+<li><p>start_date: 查询某品种会员持仓数据的开始时间。</p></li>
+<li><p>end_date: 查询的某品种会员持仓数据的结束时间。</p></li>
+<li><p>exchange: 查询的会员持仓数据公布的交易所。</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>返回数据字段名称<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回字段名称</p></th>
+<th class="head"><p>中文名称</p></th>
+<th class="head"><p>注释</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>trade_date</p></td>
+<td><p>交易日期</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>sec_code</p></td>
+<td><p>标的</p></td>
+<td><p>例如：铜(cu)</p></td>
+</tr>
+<tr class="row-even"><td><p>vol_top5</p></td>
+<td><p>成交量前5个会员的成交量总和</p></td>
+<td><p>vol_top10、vol_top15、vol_top20
+分别为成交量前10、15、20个会员成交量总和</p></td>
+</tr>
+<tr class="row-odd"><td><p>vol_chg_top5</p></td>
+<td><p>成交量前5个会员的成交量变化总和</p></td>
+<td><p>vol_chg_top10、vol_chg_top15、vol_chg_top20
+分别为前10、15、20个会员的成交量变化总和</p></td>
+</tr>
+<tr class="row-even"><td><p>long_open_interest_top5</p></td>
+<td><p>持多单前5个会员的持多单量总和</p></td>
+<td><p>long_open_interest_top10、long_open_interest_top15、long_open_interest_top20
+分别为持多单前10、15、20个会员的持多单量总和</p></td>
+</tr>
+<tr class="row-odd"><td><p>long_open_interest_chg_top5</p></td>
+<td><p>持多单前5个会员持多单变化量总和</p></td>
+<td><p>long_open_interest_chg_top10、long_open_interest_chg_top15
+分别为持多单前10、15、20个会员持多单变化量总和</p></td>
+</tr>
+<tr class="row-even"><td><p>short_open_interest_top5</p></td>
+<td><p>持空单前5个会员持空单量总和</p></td>
+<td><p>short_open_interest_top10、short_open_interest_top15、short_open_interest_top20
+分别为持空单前10、15、20个会员持空单量总和</p></td>
+</tr>
+<tr class="row-odd"><td><p>short_open_interest_chg_top5</p></td>
+<td><p>持空单前5个会员持空单变化量总和</p></td>
+<td><p>short_open_interest_chg_top10、short_open_interest_chg_top15、short_open_interest_chg_top20
+分别为持空单前10、15、20个会员持空单变化量总和</p></td>
+</tr>
+</tbody>
+</table>
+<p><cite>注:</cite>  会员持仓数据来自akshare。</p>
+</section>
+<section id="id4">
+<h2>代码示例<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h2>
+<ol class="arabic">
+<li><dl>
+<dt>查询’2022-01-01到2022-05-01的期货品种为AP公布在大连交易所的前 20 会员持仓排名数据明细。</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">=</span><span class="n">get_position_rank_single_data</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;AP&#39;</span><span class="p">,</span><span class="n">start_date</span><span class="o">=</span><span class="s1">&#39;2022-01-04&#39;</span><span class="p">,</span><span class="n">end_date</span><span class="o">=</span><span class="s1">&#39;2022-01-04&#39;</span><span class="p">,</span><span class="n">exchange</span><span class="o">=</span><span class="s1">&#39;CZCE&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">OUTPUT</span><span class="p">:</span>
+        <span class="n">rank</span>    <span class="n">trade_date</span>    <span class="n">sec_code</span>      <span class="o">...</span> <span class="n">short_open_interest_chg</span> <span class="n">variety</span>  <span class="n">exchange</span>
+    <span class="mi">0</span>   <span class="mi">1</span>       <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span>      <span class="n">AP</span>        <span class="o">...</span>        <span class="mi">4617</span>                <span class="n">AP</span>     <span class="n">CZCE</span>
+    <span class="mi">1</span>   <span class="mi">2</span>       <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span>      <span class="n">AP</span>        <span class="o">...</span>        <span class="mi">5907</span>                <span class="n">AP</span>     <span class="n">CZCE</span>
+    <span class="mi">2</span>   <span class="mi">3</span>       <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span>      <span class="n">AP</span>        <span class="o">...</span>        <span class="o">-</span><span class="mi">66</span>                 <span class="n">AP</span>     <span class="n">CZCE</span>
+    <span class="mi">3</span>   <span class="mi">4</span>       <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span>      <span class="n">AP</span>        <span class="o">...</span>        <span class="mi">3146</span>                <span class="n">AP</span>     <span class="n">CZCE</span>
+    <span class="mi">4</span>   <span class="mi">5</span>       <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span>      <span class="n">AP</span>        <span class="o">...</span>        <span class="mi">3970</span>                <span class="n">AP</span>     <span class="n">CZCE</span>
+    <span class="mi">5</span>   <span class="mi">6</span>       <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span>      <span class="n">AP</span>        <span class="o">...</span>        <span class="mi">1124</span>                <span class="n">AP</span>     <span class="n">CZCE</span>
+    <span class="mi">6</span>   <span class="mi">7</span>       <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span>      <span class="n">AP</span>        <span class="o">...</span>        <span class="mi">2046</span>                <span class="n">AP</span>     <span class="n">CZCE</span>
+    <span class="mi">7</span>   <span class="mi">8</span>       <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span>      <span class="n">AP</span>        <span class="o">...</span>        <span class="mi">295</span>                 <span class="n">AP</span>     <span class="n">CZCE</span>
+    <span class="mi">8</span>   <span class="mi">9</span>       <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span>      <span class="n">AP</span>        <span class="o">...</span>        <span class="mi">1330</span>                <span class="n">AP</span>     <span class="n">CZCE</span>
+    <span class="mi">9</span>   <span class="mi">10</span>      <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span>      <span class="n">AP</span>        <span class="o">...</span>        <span class="mi">372</span>                 <span class="n">AP</span>     <span class="n">CZCE</span>
+    <span class="mi">10</span>  <span class="mi">11</span>      <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span>      <span class="n">AP</span>        <span class="o">...</span>        <span class="o">-</span><span class="mi">465</span>                <span class="n">AP</span>     <span class="n">CZCE</span>
+    <span class="mi">11</span>  <span class="mi">12</span>      <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span>      <span class="n">AP</span>        <span class="o">...</span>        <span class="mi">1997</span>                <span class="n">AP</span>     <span class="n">CZCE</span>
+    <span class="mi">12</span>  <span class="mi">13</span>      <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span>      <span class="n">AP</span>        <span class="o">...</span>         <span class="mi">115</span>                <span class="n">AP</span>     <span class="n">CZCE</span>
+    <span class="mi">13</span>  <span class="mi">14</span>      <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span>      <span class="n">AP</span>        <span class="o">...</span>         <span class="mi">191</span>                <span class="n">AP</span>     <span class="n">CZCE</span>
+    <span class="mi">14</span>  <span class="mi">15</span>      <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span>      <span class="n">AP</span>        <span class="o">...</span>         <span class="mi">126</span>                <span class="n">AP</span>     <span class="n">CZCE</span>
+    <span class="mi">15</span>  <span class="mi">16</span>      <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span>      <span class="n">AP</span>        <span class="o">...</span>         <span class="mi">998</span>                <span class="n">AP</span>     <span class="n">CZCE</span>
+    <span class="mi">16</span>  <span class="mi">17</span>      <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span>      <span class="n">AP</span>        <span class="o">...</span>         <span class="mi">662</span>                <span class="n">AP</span>     <span class="n">CZCE</span>
+    <span class="mi">17</span>  <span class="mi">18</span>      <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span>      <span class="n">AP</span>        <span class="o">...</span>         <span class="mi">459</span>                <span class="n">AP</span>     <span class="n">CZCE</span>
+    <span class="mi">18</span>  <span class="mi">19</span>      <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span>      <span class="n">AP</span>        <span class="o">...</span>         <span class="mi">457</span>                <span class="n">AP</span>     <span class="n">CZCE</span>
+    <span class="mi">19</span>  <span class="mi">20</span>      <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span>      <span class="n">AP</span>        <span class="o">...</span>         <span class="mi">786</span>                <span class="n">AP</span>     <span class="n">CZCE</span>
+
+    <span class="p">[</span><span class="mi">20</span> <span class="n">rows</span> <span class="n">x</span> <span class="mi">14</span> <span class="n">columns</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>查询2022-01-04到2022-01-10的期货品种为AP的四个期货交易所前 5、前 10、前 15、前 20 会员持仓数据。</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">=</span><span class="n">get_position_rank_total_data</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;AP&#39;</span><span class="p">,</span><span class="n">start_date</span><span class="o">=</span><span class="s1">&#39;2022-01-04&#39;</span><span class="p">,</span><span class="n">end_date</span><span class="o">=</span><span class="s1">&#39;2022-01-10&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">OUTPUT</span><span class="p">:</span>
+    <span class="n">trade_date</span>          <span class="n">sec_code</span>     <span class="o">...</span>    <span class="n">short_open_interest_top20</span> <span class="n">short_open_interest_chg_top20</span>
+    <span class="mi">0</span> <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span>           <span class="n">AP</span>      <span class="o">...</span>          <span class="mi">17156</span>                       <span class="o">-</span><span class="mi">107</span>
+    <span class="mi">1</span> <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">05</span>           <span class="n">AP</span>      <span class="o">...</span>          <span class="mi">17251</span>                        <span class="mi">95</span>
+    <span class="mi">2</span> <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">06</span>           <span class="n">AP</span>      <span class="o">...</span>          <span class="mi">17378</span>                        <span class="mi">413</span>
+    <span class="mi">3</span> <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">07</span>           <span class="n">AP</span>      <span class="o">...</span>          <span class="mi">17346</span>                        <span class="o">-</span><span class="mi">32</span>
+    <span class="mi">4</span> <span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">10</span>           <span class="n">AP</span>      <span class="o">...</span>          <span class="mi">17212</span>                        <span class="mi">1187</span>
+
+    <span class="p">[</span><span class="mi">5</span> <span class="n">rows</span> <span class="n">x</span> <span class="mi">27</span> <span class="n">columns</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ol>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../../index.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">会员持仓</a><ul>
+<li><a class="reference internal" href="#id2">参数说明</a></li>
+<li><a class="reference internal" href="#id3">返回数据字段名称</a></li>
+<li><a class="reference internal" href="#id4">代码示例</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一主题</h4>
+    <p class="topless"><a href="../%E6%B3%A8%E5%86%8C%E4%BB%93%E5%8D%95/contents.html"
+                          title="上一章">注册仓单</a></p>
+  </div>
+  <div>
+    <h4>下一主题</h4>
+    <p class="topless"><a href="../%E5%B1%95%E6%9C%9F%E6%94%B6%E7%9B%8A%E7%8E%87/contents.html"
+                          title="下一章">展期收益率</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/函数目录/会员持仓/contents.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="提交" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="总索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../%E5%B1%95%E6%9C%9F%E6%94%B6%E7%9B%8A%E7%8E%87/contents.html" title="展期收益率"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="../%E6%B3%A8%E5%86%8C%E4%BB%93%E5%8D%95/contents.html" title="注册仓单"
+             >上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">数据使用指南 0.1.1 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >细水资本查询函数</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">会员持仓</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2022, cindy.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0创建。
+    </div>
+  </body>
+</html>

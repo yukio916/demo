@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>细水资本查询函数 &#8212; 数据使用指南 0.1.1 文档</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nature.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="author" title="关于此文档" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="环境配置" href="%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/contents.html" />
+    <link rel="prev" title="Welcome to 数据使用指南’s documentation!" href="../index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/contents.html" title="环境配置"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="Welcome to 数据使用指南’s documentation!"
+             accesskey="P">上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">数据使用指南 0.1.1 文档</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">细水资本查询函数</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="id1">
+<h1>细水资本查询函数<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/contents.html">环境配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%9C%9F%E8%B4%A7%E6%95%B0%E6%8D%AE/contents.html">期货数据</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="%E6%9C%9F%E8%B4%A7%E6%95%B0%E6%8D%AE/contents.html#id2">参数说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%E6%9C%9F%E8%B4%A7%E6%95%B0%E6%8D%AE/contents.html#id3">返回字段名称</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%E6%9C%9F%E8%B4%A7%E6%95%B0%E6%8D%AE/contents.html#id4">代码示例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="%E4%B8%BB%E5%8A%9B%E8%BF%9E%E7%BB%AD%E5%90%88%E7%BA%A6/contents.html">主力连续合约</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="%E4%B8%BB%E5%8A%9B%E8%BF%9E%E7%BB%AD%E5%90%88%E7%BA%A6/contents.html#id2">未复权主力连续合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%E4%B8%BB%E5%8A%9B%E8%BF%9E%E7%BB%AD%E5%90%88%E7%BA%A6/contents.html#id6">后复权主力连续合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%E4%B8%BB%E5%8A%9B%E8%BF%9E%E7%BB%AD%E5%90%88%E7%BA%A6/contents.html#id10">主连合约说明</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="TICK%E6%95%B0%E6%8D%AE/contents.html">TICK数据</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="TICK%E6%95%B0%E6%8D%AE/contents.html#id1">参数说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TICK%E6%95%B0%E6%8D%AE/contents.html#id2">返回数据字段名称</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TICK%E6%95%B0%E6%8D%AE/contents.html#id3">代码示例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%B3%A8%E5%86%8C%E4%BB%93%E5%8D%95/contents.html">注册仓单</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="%E6%B3%A8%E5%86%8C%E4%BB%93%E5%8D%95/contents.html#id2">参数说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%E6%B3%A8%E5%86%8C%E4%BB%93%E5%8D%95/contents.html#id3">返回数据字段名称</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%E6%B3%A8%E5%86%8C%E4%BB%93%E5%8D%95/contents.html#id4">代码示例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="%E4%BC%9A%E5%91%98%E6%8C%81%E4%BB%93/contents.html">会员持仓</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="%E4%BC%9A%E5%91%98%E6%8C%81%E4%BB%93/contents.html#id2">参数说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%E4%BC%9A%E5%91%98%E6%8C%81%E4%BB%93/contents.html#id3">返回数据字段名称</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%E4%BC%9A%E5%91%98%E6%8C%81%E4%BB%93/contents.html#id4">代码示例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="%E5%B1%95%E6%9C%9F%E6%94%B6%E7%9B%8A%E7%8E%87/contents.html">展期收益率</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="%E5%B1%95%E6%9C%9F%E6%94%B6%E7%9B%8A%E7%8E%87/contents.html#id2">参数说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%E5%B1%95%E6%9C%9F%E6%94%B6%E7%9B%8A%E7%8E%87/contents.html#id3">返回数据字段名称</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%E5%B1%95%E6%9C%9F%E6%94%B6%E7%9B%8A%E7%8E%87/contents.html#id4">代码示例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="%E8%82%A1%E7%A5%A8%E6%95%B0%E6%8D%AE/contents.html">股票数据</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="%E8%82%A1%E7%A5%A8%E6%95%B0%E6%8D%AE/contents.html#id2">参数说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%E8%82%A1%E7%A5%A8%E6%95%B0%E6%8D%AE/contents.html#id3">返回字段名称</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%E8%82%A1%E7%A5%A8%E6%95%B0%E6%8D%AE/contents.html#id4">代码示例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="%E5%A4%96%E6%B1%87%E6%95%B0%E6%8D%AE/%E7%A6%BB%E5%B2%B8%E4%BA%BA%E6%B0%91%E5%B8%81/contents.html">离岸人民币</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="%E5%A4%96%E6%B1%87%E6%95%B0%E6%8D%AE/%E7%A6%BB%E5%B2%B8%E4%BA%BA%E6%B0%91%E5%B8%81/contents.html#id2">参数说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%E5%A4%96%E6%B1%87%E6%95%B0%E6%8D%AE/%E7%A6%BB%E5%B2%B8%E4%BA%BA%E6%B0%91%E5%B8%81/contents.html#id3">返回数据字段名称</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%E5%A4%96%E6%B1%87%E6%95%B0%E6%8D%AE/%E7%A6%BB%E5%B2%B8%E4%BA%BA%E6%B0%91%E5%B8%81/contents.html#id4">代码示例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="%E5%A4%96%E6%B1%87%E6%95%B0%E6%8D%AE/%E7%BE%8E%E5%85%83%E6%8C%87%E6%95%B0/contents.html">美元指数</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="%E5%A4%96%E6%B1%87%E6%95%B0%E6%8D%AE/%E7%BE%8E%E5%85%83%E6%8C%87%E6%95%B0/contents.html#id2">参数说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%E5%A4%96%E6%B1%87%E6%95%B0%E6%8D%AE/%E7%BE%8E%E5%85%83%E6%8C%87%E6%95%B0/contents.html#id3">返回数据字段名称</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%E5%A4%96%E6%B1%87%E6%95%B0%E6%8D%AE/%E7%BE%8E%E5%85%83%E6%8C%87%E6%95%B0/contents.html#id4">代码示例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="K%E7%BA%BF%E5%9B%BE%E7%BD%91%E7%AB%99/contents.html">K线图网站</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="K%E7%BA%BF%E5%9B%BE%E7%BD%91%E7%AB%99/contents.html#id1">网站地址</a></li>
+<li class="toctree-l2"><a class="reference internal" href="K%E7%BA%BF%E5%9B%BE%E7%BD%91%E7%AB%99/contents.html#id2">参数说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="K%E7%BA%BF%E5%9B%BE%E7%BD%91%E7%AB%99/contents.html#id3">示例</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>上一主题</h4>
+    <p class="topless"><a href="../index.html"
+                          title="上一章">Welcome to 数据使用指南’s documentation!</a></p>
+  </div>
+  <div>
+    <h4>下一主题</h4>
+    <p class="topless"><a href="%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/contents.html"
+                          title="下一章">环境配置</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/函数目录/index.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="提交" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/contents.html" title="环境配置"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="Welcome to 数据使用指南’s documentation!"
+             >上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">数据使用指南 0.1.1 文档</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">细水资本查询函数</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2022, cindy.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0创建。
+    </div>
+  </body>
+</html>
